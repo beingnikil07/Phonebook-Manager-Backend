@@ -2,6 +2,9 @@ package com.phonebook.manager.backend.Entity;
 
 import jakarta.persistence.*;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 @Entity
 @Table(name ="users")
 public class User {
@@ -31,4 +34,7 @@ public class User {
     //For Email Verification Token
     private String emailToken;
 
+    //mapping with Contact ,A user can have more than one contacts
+    @OneToMany(mappedBy ="user",fetch =FetchType.LAZY,cascade =CascadeType.ALL,orphanRemoval = true)
+    private Set<Contact> contacts=new LinkedHashSet<>();
 }
