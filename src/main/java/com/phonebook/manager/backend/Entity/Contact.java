@@ -1,9 +1,17 @@
 package com.phonebook.manager.backend.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name ="user_contacts")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Contact {
     @Id
     private String id;
