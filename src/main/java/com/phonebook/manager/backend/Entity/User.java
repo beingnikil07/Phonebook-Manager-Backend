@@ -1,6 +1,7 @@
 package com.phonebook.manager.backend.Entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,10 +20,11 @@ public class User {
     @Id
     private String id;
     @Column(nullable = false)
+    @NotBlank(message ="user is required")
     private String name;
     @Column(unique = true,nullable = false)
     private String email;
-
+    @NotBlank(message = "password is required")
     private String password;
 
     @Lob
